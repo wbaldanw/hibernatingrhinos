@@ -6,27 +6,35 @@ namespace NHibernateUnitOfWork
 {
     public static class UnitOfWork
     {
-        private static IUnitOfWorkFactory _unitOfWorkFactory = new UnitOfWorkFactory();
-        private static IUnitOfWork _innerUnitOfWork;
+        private static readonly IUnitOfWorkFactory _unitOfWorkFactory = new UnitOfWorkFactory();
 
         public static Configuration Configuration
         {
             get { return _unitOfWorkFactory.Configuration; }
         }
 
+        public const string CurrentUnitOfWorkKey = "CurrentUnitOfWork.Key";
+
+        private static IUnitOfWork CurrentUnitOfWork
+        {
+            get { return Local.Data[CurrentUnitOfWorkKey] as IUnitOfWork; }
+            set { Local.Data[CurrentUnitOfWorkKey] = value; }
+        }
+
         public static IUnitOfWork Current
         {
             get
             {
-                if (_innerUnitOfWork == null)
-                    throw new InvalidOperationException("You are not in a unit of work.");
-                return _innerUnitOfWork;
+                var unitOfWork = CurrentUnitOfWork;
+                if (unitOfWork == null)
+                    throw new InvalidOperationException("You are not in a unit of work");
+                return unitOfWork;
             }
         }
 
         public static bool IsStarted
         {
-            get { return _innerUnitOfWork != null; }
+            get { return CurrentUnitOfWork != null; }
         }
 
         public static ISession CurrentSession
@@ -37,16 +45,17 @@ namespace NHibernateUnitOfWork
 
         public static IUnitOfWork Start()
         {
-            if (_innerUnitOfWork != null)
+            if (CurrentUnitOfWork != null)
                 throw new InvalidOperationException("You cannot start more than one unit of work at the same time.");
             
-            _innerUnitOfWork = _unitOfWorkFactory.Create();
-            return _innerUnitOfWork;
+            var unitOfWork = _unitOfWorkFactory.Create();
+            CurrentUnitOfWork = unitOfWork;
+            return unitOfWork;
         }
 
         public static void DisposeUnitOfWork(IUnitOfWorkImplementor unitOfWork)
         {
-            _innerUnitOfWork = null;
+            CurrentUnitOfWork = null;
         }
     }
 }

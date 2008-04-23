@@ -81,9 +81,12 @@ namespace NHibernateUnitOfWork.Tests
         private void ResetUnitOfWork()
         {
             // assert that the UnitOfWork is reset
-            var fieldInfo = typeof(UnitOfWork).GetField("_innerUnitOfWork",
-                                BindingFlags.Static | BindingFlags.SetField | BindingFlags.NonPublic);
-            fieldInfo.SetValue(null, null);
+            var propertyInfo = typeof(UnitOfWork).GetProperty("CurrentUnitOfWork",
+                                BindingFlags.Static | BindingFlags.SetProperty | BindingFlags.NonPublic);
+            propertyInfo.SetValue(null, null, null);
+            //var fieldInfo = typeof(UnitOfWork).GetField("_innerUnitOfWork",
+            //                    BindingFlags.Static | BindingFlags.SetField | BindingFlags.NonPublic);
+            //fieldInfo.SetValue(null, null);
         }
 
         [Test]
