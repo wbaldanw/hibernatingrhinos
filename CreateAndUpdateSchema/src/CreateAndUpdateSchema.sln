@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{DD5FE59C-AE28-442F-B0BB-4492BF518899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{AAF89006-BE04-427B-BF34-5B0BA2DA0F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer.Tests", "DataLayer.Tests\DataLayer.Tests.csproj", "{5F964C91-09F9-43F2-B88A-269D467F35DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD5FE59C-AE28-442F-B0BB-4492BF518899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5FE59C-AE28-442F-B0BB-4492BF518899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5FE59C-AE28-442F-B0BB-4492BF518899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5FE59C-AE28-442F-B0BB-4492BF518899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF89006-BE04-427B-BF34-5B0BA2DA0F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF89006-BE04-427B-BF34-5B0BA2DA0F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF89006-BE04-427B-BF34-5B0BA2DA0F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF89006-BE04-427B-BF34-5B0BA2DA0F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F964C91-09F9-43F2-B88A-269D467F35DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F964C91-09F9-43F2-B88A-269D467F35DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F964C91-09F9-43F2-B88A-269D467F35DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F964C91-09F9-43F2-B88A-269D467F35DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
