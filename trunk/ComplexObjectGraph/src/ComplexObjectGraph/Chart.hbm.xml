@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ComplexObjectGraph"
+                   namespace="ComplexObjectGraph">
+  <class name="Chart">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <many-to-one name="MainCurve" class="Curve" column="MainCurveId" not-null="true" />
+  </class>
+  
+  <class name="Curve">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name" length="50" not-null="true" />
+    <set name="Segments">
+      <key column="CurveId" />
+      <one-to-many class="Segment"/>
+    </set>
+  </class>
+  
+  <class name="Segment">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name" length="50" not-null="true" />
+    <many-to-one name="Transition" class="Transition" column="TransitionId" not-null="false"/>
+    <many-to-one name="SegmentData" class="SegmentData" column="SegmentDataId" not-null="false" cascade="all"/>
+    <many-to-one name="PlotDetails" class="PlotDetails" column="PlotDetailsId" not-null="true" cascade="all"/>
+    <set name="Points" cascade="all-delete-orphan">
+      <key column="SegmentId" />
+      <one-to-many class="SegmentPoint"/>
+    </set>
+  </class>
+  
+  <class name="Transition">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name" length="50" not-null="true" />
+    <many-to-one name="PlotDetails" class="PlotDetails" column="PlotDetailsId" not-null="true" cascade="all"/>
+    <set name="Points" cascade="all-delete-orphan">
+      <key column="TransitionId" />
+      <one-to-many class="TransitionPoint"/>
+    </set>
+  </class>
+  
+  <class name="PlotDetails">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="LineColor" not-null="true" />
+  </class>
+  
+  <class name="SegmentPoint">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <many-to-one name="DataPoint" class="DataPoint" column="DataPointId" not-null="true" cascade="all"/>
+  </class>
+  
+  <class name="TransitionPoint">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <many-to-one name="DataPoint" class="DataPoint" column="DataPointId" not-null="true" cascade="all"/>
+  </class>
+  
+  <class name="DataPoint">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="X" not-null="true" />
+    <property name="Y" not-null="true" />
+  </class>
+  
+  <class name="SegmentData">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Data" not-null="true" />
+  </class>
+</hibernate-mapping>

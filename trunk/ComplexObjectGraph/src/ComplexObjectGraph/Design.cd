@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ComplexObjectGraph.Chart" Collapsed="true">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <AssociationLine Name="MainCurve" Type="ComplexObjectGraph.Curve" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="1.562" />
+        <Point X="5.5" Y="2.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainCurve" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.Curve" Collapsed="true">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <AssociationLine Name="Segments" Type="ComplexObjectGraph.Segment" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="2.812" />
+        <Point X="5.5" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Segments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.Segment" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <AssociationLine Name="PlotDetails" Type="ComplexObjectGraph.PlotDetails" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.906" Y="4.062" />
+        <Point X="5.906" Y="4.375" />
+        <Point X="7.75" Y="4.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAIAAAAAAQAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PlotDetails" />
+      <Property Name="Transition" />
+      <Property Name="SegmentData" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Points" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.PlotDetails" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComplexObjectGraph.Transition" Collapsed="true">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <AssociationLine Name="PlotDetails" Type="ComplexObjectGraph.PlotDetails" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="5" />
+        <Point X="5.875" Y="4.75" />
+        <Point X="7.75" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PlotDetails" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Points" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.SegmentData" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComplexObjectGraph.SegmentPoint" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <AssociationLine Name="DataPoint" Type="ComplexObjectGraph.DataPoint" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="3.75" />
+        <Point X="1.125" Y="3.75" />
+        <Point X="1.125" Y="4.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataPoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.TransitionPoint" Collapsed="true">
+    <Position X="2" Y="5" Width="1.5" />
+    <AssociationLine Name="DataPoint" Type="ComplexObjectGraph.DataPoint" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="5.25" />
+        <Point X="1.125" Y="5.25" />
+        <Point X="1.125" Y="4.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataPoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ComplexObjectGraph.DataPoint" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
