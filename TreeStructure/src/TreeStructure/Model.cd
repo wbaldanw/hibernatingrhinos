@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TreeStructure.Equipment">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <AssociationLine Name="Children" Type="TreeStructure.Equipment">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.362" Y="-0.161" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Parent" Type="TreeStructure.Equipment">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.318" Y="-0.242" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAEQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Equipment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Children" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
