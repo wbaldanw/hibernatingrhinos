@@ -1,44 +1,8 @@
 using System;
 using System.Collections.Generic;
-using NHibernate;
-using NHibernate.Cfg;
 
 namespace TreeStructure
 {
-    public class SessionManager : ISessionManager
-    {
-        private static SessionManager _instance;
-        private readonly ISessionFactory _sessionFactory;
-
-        private SessionManager()
-        {
-            var configuration = new Configuration();
-            configuration.Configure();
-            configuration.AddAssembly(typeof(Equipment).Assembly);
-            _sessionFactory = configuration.BuildSessionFactory();
-        }
-
-        public static ISessionManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new SessionManager();
-                return _instance;
-            }
-        }
-
-        public ISession OpenSession()
-        {
-            return _sessionFactory.OpenSession();
-        }
-    }
-
-    public interface ISessionManager
-    {
-        ISession OpenSession();
-    }
-
     public class EquipmentRepository
     {
         public ISessionManager SessionManager { get; set; }
@@ -80,7 +44,7 @@ namespace TreeStructure
         {
             using (var session = SessionManager.OpenSession())
             {
-                var sql = "from Equipment e" +
+                var sql = "select e from Equipment e" +
                           " left join e.Parent p" +
                           " where e.Children.size = 0";
                 var leafs = session.CreateQuery(sql)

@@ -2,18 +2,18 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TreeStructure.Equipment">
     <Position X="7" Y="1.25" Width="1.5" />
-    <AssociationLine Name="Children" Type="TreeStructure.Equipment">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.362" Y="-0.161" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="Parent" Type="TreeStructure.Equipment">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.318" Y="-0.242" />
+        <Position X="-0.797" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Children" Type="TreeStructure.Equipment">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.93" Y="0.058" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAEQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACCAAAAAAAAAAAAAAAEQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Equipment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -21,6 +21,41 @@
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Children" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TreeStructure.Node">
+    <Position X="1.75" Y="2" Width="1.5" />
+    <AssociationLine Name="Ancestors" Type="TreeStructure.Node">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.025" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Children" Type="TreeStructure.Node">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.973" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Parent" Type="TreeStructure.Node">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.079" Y="-0.305" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Descendants" Type="TreeStructure.Node">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.089" Y="-0.305" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAEQAQAAAAAAAAAIAAAAAEAAAA=</HashCode>
+      <FileName>Node.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Ancestors" />
+      <Property Name="Children" />
+      <Property Name="Descendants" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
