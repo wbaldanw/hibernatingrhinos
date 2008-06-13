@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="CollectionMapping"
+                   namespace="CollectionMapping">
+  <class name="Customer">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name"/>
+    
+    <set name="Contacts">
+      <key column="CustomerId" foreign-key="fk_Contact_Customer"/>
+      <element column="Description" type="String"/>
+    </set>
+
+    <set name="BusinessContacts" table="BusinessContact">
+      <key column="CustomerId" foreign-key="fk_BusinessContact_Customer"/>
+      <composite-element class="Contact">
+        <property name="Type" not-null="true"/>
+        <property name="Description" not-null="true"/>
+      </composite-element>
+    </set>
+    
+  </class>
+</hibernate-mapping>
