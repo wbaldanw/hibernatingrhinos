@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionMapping", "CollectionMapping\CollectionMapping.csproj", "{F99052EF-E973-4450-9A85-9F3B04DADF87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionMapping.Tests", "CollectionMapping.Tests\CollectionMapping.Tests.csproj", "{52E7ABDD-5858-4F24-BA0A-82F53BC3ABEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F99052EF-E973-4450-9A85-9F3B04DADF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99052EF-E973-4450-9A85-9F3B04DADF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99052EF-E973-4450-9A85-9F3B04DADF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99052EF-E973-4450-9A85-9F3B04DADF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52E7ABDD-5858-4F24-BA0A-82F53BC3ABEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E7ABDD-5858-4F24-BA0A-82F53BC3ABEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E7ABDD-5858-4F24-BA0A-82F53BC3ABEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E7ABDD-5858-4F24-BA0A-82F53BC3ABEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
