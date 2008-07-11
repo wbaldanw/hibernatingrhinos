@@ -52,6 +52,9 @@
   <ItemGroup>
     <Compile Include="CreateSchema_Fixture.cs" />
     <Compile Include="Customer_Fixture.cs" />
+    <Compile Include="DriveSystem_Fixture.cs" />
+    <Compile Include="Fixture_Base.cs" />
+    <Compile Include="Person_Fixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
