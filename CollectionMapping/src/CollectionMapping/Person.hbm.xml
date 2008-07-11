@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="CollectionMapping"
+                   namespace="CollectionMapping">
+  <class name="Person">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name"/>
+    
+    <map name="Hobbies" >
+      <key column="PersonId" foreign-key="fk_Hobby_Person"/>
+      <index column="SortIndex" type="Int32" />
+      <element column="Description" type="String"/>
+    </map>
+    
+    <map name="Tasks" >
+      <key column="PersonId" foreign-key="fk_Task_Person"/>
+      <index column="TheKey" type="String" />
+      <composite-element class="Task" >
+        <property name="Description"/>
+        <property name="DueDate"/>
+        <property name="Done"/>
+      </composite-element>
+    </map>
+
+    <idbag name="Children" table="Children" cascade="all-delete-orphan">
+      <collection-id column ="Id" type="Int32">
+        <generator class="native"/>
+      </collection-id>
+      <key column="ParentId" foreign-key="fk_Children_Parent" />
+      <many-to-many column="ChildId" class="Person" foreign-key="fk_Children_Child" />
+    </idbag>
+  </class>
+</hibernate-mapping>

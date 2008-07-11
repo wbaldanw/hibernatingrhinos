@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="CollectionMapping"
+                   namespace="CollectionMapping">
+  <class name="DriveSystem">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Name"/>
+    
+    <bag name="Equipments" order-by="Description asc">
+      <key column="DriveSystemId" foreign-key="fk_Equipment_DriveSystem"/>
+      <element column="Description" type="String"/>
+    </bag>
+
+    <bag name="Manuals">
+      <key column="DriveSystemId" foreign-key="fk_Manual_DriveSystem"/>
+      <composite-element class="Manual">
+        <property name="Title"/>
+        <property name="Language"/>
+      </composite-element>
+    </bag>
+  </class>
+</hibernate-mapping>
