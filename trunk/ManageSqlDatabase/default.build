@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="DemoSolution" default="builddatabase" 
+         xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+	<property name="solution.dir" value="src" />
+	<property name="database.script.directory" value="${solution.dir}/Database"/>
+	<property name="database.server" value="localhost"/>
+	<property name="database.name" value="${project::get-name()}"/>
+
+	<target name="builddatabase" depends="dropDatabase, createDatabase" />
+	
+	<target name="dropDatabase">
+ 		<property name="action" value="Drop" />
+		<call target="manageSqlDatabase" failonerror="false"/>
+ </target>
+	
+	<target name="createDatabase">
+		<property name="action" value="Create" />
+		<call target="manageSqlDatabase" />
+  </target>
+  
+  <target name="manageSqlDatabase">
+    <manageSqlDatabase
+      scriptDirectory="${database.script.directory}"
+      action="${action}"
+      server="${database.server}"
+      integratedAuthentication="true"
+      database="${database.name}"
+    />
+
+    <if test="${action != 'Drop'}">
+      <echo message="Current Database Version: ${usdDatabaseVersion}" />
+    </if>
+
+  </target>
+</project>
