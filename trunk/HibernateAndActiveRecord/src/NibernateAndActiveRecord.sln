@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateAndActiveRecord", "NHibernateAndActiveRecord\NHibernateAndActiveRecord.csproj", "{A1FB197B-6AB4-4904-8C81-F53FAA5C8633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibernateAndActiveRecord.Tests", "NibernateAndActiveRecord.Tests\NibernateAndActiveRecord.Tests.csproj", "{D96E6CAC-6B35-4C48-BCC1-4E8FEA9283E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1FB197B-6AB4-4904-8C81-F53FAA5C8633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FB197B-6AB4-4904-8C81-F53FAA5C8633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FB197B-6AB4-4904-8C81-F53FAA5C8633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FB197B-6AB4-4904-8C81-F53FAA5C8633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96E6CAC-6B35-4C48-BCC1-4E8FEA9283E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96E6CAC-6B35-4C48-BCC1-4E8FEA9283E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96E6CAC-6B35-4C48-BCC1-4E8FEA9283E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96E6CAC-6B35-4C48-BCC1-4E8FEA9283E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

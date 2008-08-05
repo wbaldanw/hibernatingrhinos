@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<activerecord>
+
+  <config>
+    <add key="connection.provider"
+         value="NHibernate.Connection.DriverConnectionProvider" />
+    <add key="dialect"
+         value="NHibernate.Dialect.MsSqlCeDialect" />
+    <add key="connection.driver_class"
+         value="NHibernate.Driver.SqlServerCeDriver" />
+    <add key="connection.connection_string"
+         value="Data Source=SampleDb.sdf" />
+    
+    <add key="show_sql"
+         value="true" />
+  </config>
+
+</activerecord>
