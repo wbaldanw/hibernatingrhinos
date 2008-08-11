@@ -7,20 +7,22 @@
     <EnableUnitTesting>True</EnableUnitTesting>
     <Providers />
   </UnitTestRunner>
-  <NAntValidationSettings>
-    <NAntPath value="" />
-  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="C0E9EA2B-DC88-4E27-99DB-52E760096D35/f:hibernate.cfg.xml" caret="0" scrollPosition="0|0" />
+    </RecentFiles>
+    <RecentEdits />
+  </RecentFiles>
   <SettingsComponent>
     <string />
     <integer />
     <boolean>
       <setting name="SolutionAnalysisEnabled">False</setting>
+      <setting name="UseSolutionBuilder">False</setting>
     </boolean>
   </SettingsComponent>
-  <CodeCleanup RecentlyUsed="" />
-  <RecentFiles>
-    <RecentFiles />
-    <RecentEdits />
-  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
   <CompletionStatisticsManager />
 </Configuration>
