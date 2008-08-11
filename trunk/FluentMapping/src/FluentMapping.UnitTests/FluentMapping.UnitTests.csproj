@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9530146F-F483-4795-A0EB-A2F9A0253C8B}</ProjectGuid>
+    <ProjectGuid>{E43C124E-514A-4E07-8923-56B52CD21B78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentMapping.Infrastructure</RootNamespace>
-    <AssemblyName>FluentMapping.Infrastructure</AssemblyName>
+    <RootNamespace>FluentMapping.UnitTests</RootNamespace>
+    <AssemblyName>FluentMapping.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,23 +39,31 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\sharedlibs\FluentNHibernate.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\sharedlibs\log4net.dll</HintPath>
+      <HintPath>..\..\sharedlibs\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\sharedlibs\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\sharedlibs\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.35.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\sharedlibs\System.Data.SQLite.DLL</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappings\MySessionSource.cs" />
-    <Compile Include="Mappings\ProductMap.cs" />
+    <Compile Include="FixtureBase.cs" />
+    <Compile Include="Product_Fixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +71,18 @@
       <Project>{5ADC3608-1B2B-45E4-A3A8-A540DC969267}</Project>
       <Name>FluentMapping.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FluentMapping.Infrastructure\FluentMapping.Infrastructure.csproj">
+      <Project>{9530146F-F483-4795-A0EB-A2F9A0253C8B}</Project>
+      <Name>FluentMapping.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FluentMappingSample.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -72,4 +92,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
