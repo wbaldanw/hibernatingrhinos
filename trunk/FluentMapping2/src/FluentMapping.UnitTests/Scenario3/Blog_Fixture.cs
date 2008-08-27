@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using FluentMapping.Domain.Scenario3;
 using FluentNHibernate.Framework;
+using Iesi.Collections.Generic;
 using NHibernate;
 using NUnit.Framework;
 
@@ -44,7 +46,8 @@ namespace FluentMapping.UnitTests.Scenario3
         {
             new PersistenceSpecification<Blog>(Session)
                 .CheckProperty(x => x.Name, "Gabriel's Blog")
-                .CheckProperty(x => x.Author, author);
+                .CheckProperty(x => x.Author, author)
+                .VerifyTheMappings();
         }
     }
 
@@ -84,7 +87,8 @@ namespace FluentMapping.UnitTests.Scenario3
         [Test]
         public void Can_add_post_to_blog_revisited()
         {
-            var posts = new[]
+            List<Post> posts = new List<Post>();
+            posts.AddRange(new[]
                             {
                                 new Post {
                                             Title = "First Post",
@@ -96,12 +100,13 @@ namespace FluentMapping.UnitTests.Scenario3
                                             Body = "Just another test",
                                             PublicationDate = DateTime.Today.AddDays(-1)
                                          },
-                            };
+                            });
 
             new PersistenceSpecification<Blog>(Session)
                 .CheckProperty(x => x.Name, "Gabriel's Blog")
                 .CheckProperty(x => x.Author, author)
-                .CheckList(x=>x.Posts, posts);
+                .CheckList(x => x.Posts, posts)
+                .VerifyTheMappings();
         }
     }
 
@@ -142,14 +147,15 @@ namespace FluentMapping.UnitTests.Scenario3
             fromDb.Comments.First().Equals(comment);
         }
 
-        [Test][Ignore(".CheckList is not yet working")]
+        [Test]//[Ignore(".CheckList is not yet working")]
         public void Can_add_comment_to_post_revisited()
         {
             new PersistenceSpecification<Post>(Session)
                 .CheckProperty(x => x.Title, "Some title")
                 .CheckProperty(x => x.Body, "Some text")
                 .CheckProperty(x => x.PublicationDate, DateTime.Today)
-                .CheckList(x => x.Comments, new[] {comment});
+                .CheckComponentList(x => x.Comments, new[] { comment })
+                .VerifyTheMappings();
         }
     }
 }

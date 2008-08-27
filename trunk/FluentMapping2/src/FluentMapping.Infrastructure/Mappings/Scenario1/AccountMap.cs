@@ -1,4 +1,3 @@
-using FluentMapping.Domain;
 using FluentMapping.Domain.Scenario1;
 using FluentNHibernate.Mapping;
 

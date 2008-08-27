@@ -10,7 +10,7 @@ namespace FluentMapping.Infrastructure.Mappings.Scenario3
             Id(x => x.Id);
             Map(x => x.Name);
             References(x => x.Author);
-            HasMany<Post>(x => x.Posts).AsSet().CascadeAll();
+            HasMany<Post>(x => x.Posts).AsSet().Cascade.AllDeleteOrphan();
         }
     }
 }

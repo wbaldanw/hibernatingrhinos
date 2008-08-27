@@ -11,13 +11,13 @@ namespace FluentMapping.Infrastructure.Mappings.Scenario3
             Map(x => x.Title);
             Map(x => x.Body);
             Map(x => x.PublicationDate);
-            HasManyComponent<Comment>(x => x.Comments,
-                                      c =>
-                                          {
-                                              c.Map(x => x.Text);
-                                              c.Map(x => x.AuthorEmail);
-                                              c.Map(x => x.CreationDate);
-                                          }).AsSet();
+            HasMany<Comment>(x => x.Comments)
+                .Component(c =>
+                               {
+                                   c.Map(x => x.Text);
+                                   c.Map(x => x.AuthorEmail);
+                                   c.Map(x => x.CreationDate);
+                               }).AsSet();
         }
     }
 }
