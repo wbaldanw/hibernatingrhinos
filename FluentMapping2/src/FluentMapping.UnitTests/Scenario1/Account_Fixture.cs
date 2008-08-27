@@ -1,4 +1,3 @@
-using FluentMapping.Domain;
 using FluentMapping.Domain.Scenario1;
 using FluentNHibernate.Framework;
 using NUnit.Framework;
@@ -44,7 +43,8 @@ namespace FluentMapping.UnitTests.Scenario1
             new PersistenceSpecification<Account>(Session)
                 .CheckProperty(x => x.Name, "12345.678 8H1")
                 .CheckProperty(x => x.Customer, customer)
-                .CheckProperty(x => x.Balance, new Money(2000, "USD"));
+                .CheckProperty(x => x.Balance, new Money(2000, "USD"))
+                .VerifyTheMappings();
         }
     }
 }

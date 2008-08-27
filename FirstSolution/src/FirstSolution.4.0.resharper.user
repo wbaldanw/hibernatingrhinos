@@ -10,8 +10,11 @@
   <RecentFiles>
     <RecentFiles>
       <File id="C0E9EA2B-DC88-4E27-99DB-52E760096D35/f:hibernate.cfg.xml" caret="0" scrollPosition="0|0" />
+      <File id="C0E9EA2B-DC88-4E27-99DB-52E760096D35/d:Mappings/f:Product.hbm.xml" caret="392" scrollPosition="0|0" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="C0E9EA2B-DC88-4E27-99DB-52E760096D35/d:Mappings/f:Product.hbm.xml" caret="392" scrollPosition="0|0" />
+    </RecentEdits>
   </RecentFiles>
   <SettingsComponent>
     <string />

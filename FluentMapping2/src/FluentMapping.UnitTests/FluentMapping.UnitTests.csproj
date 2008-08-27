@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account_Fixture.cs" />
+    <Compile Include="Scenario1\Account_Fixture.cs" />
     <Compile Include="FixtureBase.cs" />
     <Compile Include="Product_Fixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,9 +83,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FluentMappingSample.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
