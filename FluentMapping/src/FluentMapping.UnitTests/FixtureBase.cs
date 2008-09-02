@@ -1,5 +1,6 @@
 using FluentMapping.Infrastructure.Mappings;
 using FluentNHibernate;
+using FluentNHibernate.Framework;
 using NHibernate;
 using NUnit.Framework;
 
@@ -7,7 +8,7 @@ namespace FluentMapping.UnitTests
 {
     public class FixtureBase
     {
-        protected MySessionSource SessionSource { get; set; }
+        protected SessionSource SessionSource { get; set; }
         protected ISession Session { get; private set; }
 
         [SetUp]
@@ -24,7 +25,7 @@ namespace FluentMapping.UnitTests
 
         protected virtual void Before_each_test()
         {
-            SessionSource = new MySessionSource(new TestModel());
+            SessionSource = new SessionSource(new TestModel());
             Session = SessionSource.CreateSession();
             SessionSource.BuildSchema(Session);
             CreateInitialData(Session);
@@ -47,6 +48,8 @@ namespace FluentMapping.UnitTests
         public TestModel()
         {
             addMappingsFromAssembly(typeof(ProductMap).Assembly);
+            addMappingsFromThisAssembly();
+            addMapping(new ProductMap());
         }
     }
 
