@@ -35,11 +35,12 @@ namespace FluentMapping.UnitTests
         [Test]
         public void Can_add_product_to_database_revisited()
         {
-            new PersistenceSpecification<Product>(SessionSource)
+            new PersistenceSpecification<Product>(Session)
                 .CheckProperty(x=>x.Name, "Apple")
                 .CheckProperty(x=>x.UnitPrice, 0.25m)
                 .CheckProperty(x=>x.UnitsOnStock, 2345)
-                .CheckProperty(x=>x.Discontinued, true);
+                .CheckProperty(x=>x.Discontinued, true)
+                .VerifyTheMappings();
         }
     }
 }

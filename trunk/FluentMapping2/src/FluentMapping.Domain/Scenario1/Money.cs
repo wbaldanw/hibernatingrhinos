@@ -10,7 +10,7 @@ namespace FluentMapping.Domain.Scenario1
 
         public Money(decimal amount, string currency)
         {
-            if(currency==null) throw new ArgumentException("Currency cannot be undefined!");
+            if(string.IsNullOrEmpty(currency)) throw new ArgumentException("Currency cannot be undefined!");
 
             Amount = amount;
             Currency = currency;
