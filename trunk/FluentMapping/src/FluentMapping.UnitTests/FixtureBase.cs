@@ -48,8 +48,6 @@ namespace FluentMapping.UnitTests
         public TestModel()
         {
             addMappingsFromAssembly(typeof(ProductMap).Assembly);
-            addMappingsFromThisAssembly();
-            addMapping(new ProductMap());
         }
     }
 
