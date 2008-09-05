@@ -1,6 +1,4 @@
 ﻿using FluentMapping.Domain;
-using FluentMapping.Infrastructure.Mappings;
-using FluentNHibernate;
 using FluentNHibernate.Framework;
 using NUnit.Framework;
 

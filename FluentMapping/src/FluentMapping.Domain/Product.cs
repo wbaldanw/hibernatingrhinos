@@ -1,9 +1,8 @@
 ﻿using System;
-using FluentNHibernate.Framework;
 
 namespace FluentMapping.Domain
 {
-    public class Product : Entity
+    public class Product : EntityBase
     {
         public virtual string Name { get; set; }
         public virtual Decimal UnitPrice { get; set; }
