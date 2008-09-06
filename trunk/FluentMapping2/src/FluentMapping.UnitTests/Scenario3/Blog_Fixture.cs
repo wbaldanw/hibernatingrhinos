@@ -147,7 +147,7 @@ namespace FluentMapping.UnitTests.Scenario3
             fromDb.Comments.First().Equals(comment);
         }
 
-        [Test]//[Ignore(".CheckList is not yet working")]
+        [Test]
         public void Can_add_comment_to_post_revisited()
         {
             new PersistenceSpecification<Post>(Session)
