@@ -1,33 +1,17 @@
 using System.Collections.Generic;
-using NHibernate;
-using NHibernateUnitOfWork;
+using NHibernate.Criterion;
 using RepositoryPattern.Model;
 using RepositoryPattern.Repositories;
 
 namespace RepositoryPattern.RepositoryImpl
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
-        public ISession Session { get { return UnitOfWork.CurrentSession; } }
-
-        public Product GetById(int id)
+        public ICollection<Product> FindAllDiscontinuedProducts()
         {
-            return Session.Get<Product>(id);
-        }
-
-        public ICollection<Product> FindAll()
-        {
-            return Session.CreateCriteria(typeof(Product)).List<Product>();
-        }
-
-        public void Add(Product product)
-        {
-            Session.Save(product);
-        }
-
-        public void Remove(Product product)
-        {
-            Session.Delete(product);
+            return Session.CreateCriteria(typeof (Product))
+                .Add(Restrictions.Eq("Discontinued", true))
+                .List<Product>();
         }
     }
 }

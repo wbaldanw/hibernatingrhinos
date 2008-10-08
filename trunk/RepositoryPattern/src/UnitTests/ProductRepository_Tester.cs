@@ -1,3 +1,4 @@
+using System.Linq;
 using NHibernateUnitOfWork;
 using NUnit.Framework;
 using RepositoryPattern.Model;
@@ -69,5 +70,14 @@ namespace UnitTests
             var prod = UnitOfWork.CurrentSession.Get<Product>(products[2].Id);
             prod.ShouldBeNull();
         }
+
+[Test]
+public void can_load_all_discontinued_products()
+{
+    var discontinuedProducts = repository.FindAllDiscontinuedProducts();
+
+    discontinuedProducts.Count.ShouldBeGreaterThan(0);
+    discontinuedProducts.ToList().ForEach(p=>p.Discontinued.ShouldBeTrue());
+}
     }
 }

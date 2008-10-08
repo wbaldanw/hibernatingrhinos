@@ -42,5 +42,10 @@ namespace RepositoryPattern.RepositoryImpl
         {
             dictionary.Remove(product.Id);
         }
+
+        public ICollection<Product> FindAllDiscontinuedProducts()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
