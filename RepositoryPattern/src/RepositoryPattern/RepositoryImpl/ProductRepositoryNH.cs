@@ -32,5 +32,10 @@ namespace RepositoryPattern.RepositoryImpl
             using (var session = GetSession())
                 session.Delete(product);
         }
+
+        public ICollection<Product> FindAllDiscontinuedProducts()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
