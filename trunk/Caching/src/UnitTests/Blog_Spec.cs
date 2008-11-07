@@ -1,6 +1,5 @@
 ﻿using System;
 using Caching;
-using NHibernate;
 using NUnit.Framework;
 
 namespace UnitTests
@@ -26,7 +25,7 @@ namespace UnitTests
         }
 
         protected override string ConfigurationName
-        { get { return "hibernate.2nd.cfg.xml"; }}
+        { get { return "hibernate.2nd.sql2005.cfg.xml"; }}
 
         [Test]
         public void try_load_blog_with_posts()
@@ -36,6 +35,7 @@ namespace UnitTests
             {
                 var blog1 = session.Get<Blog>(blog.Id);
                 blog1.ShouldNotBeNull();
+                Console.WriteLine(">>>>>>>>Iterating posts...");
                 foreach (var post in blog1.Posts)
                     Console.WriteLine("{0} - {1}", post.Id, post.Title);
             }
@@ -43,7 +43,8 @@ namespace UnitTests
             using(var session = SessionFactory.OpenSession())
             {
                 var blog2 = session.Get<Blog>(blog.Id);
-                blog2.ShouldNotBeNull();
+                //blog2.ShouldNotBeNull();
+                Console.WriteLine(">>>>>>>>Iterating posts...");
                 foreach (var post in blog2.Posts)
                     Console.WriteLine(post.Id);
             }
@@ -52,6 +53,7 @@ namespace UnitTests
             {
                 var blog3 = session.Get<Blog>(blog.Id);
                 blog3.ShouldNotBeNull();
+                Console.WriteLine(">>>>>>>>Iterating posts...");
                 foreach (var post in blog3.Posts)
                     Console.WriteLine("{0} - {1}", post.Id, post.Title);
             }
@@ -82,16 +84,16 @@ namespace UnitTests
         [Test]
         public void trying_named_query()
         {
-            Console.WriteLine(">>>>First load...");
             using (var session = SessionFactory.OpenSession())
             {
+                Console.WriteLine(">>>>First load...");
                 var list = session.GetNamedQuery("query1")
                     .SetString("name", "Keep%")
                     .List<Blog>();
             //}
-            //Console.WriteLine(">>>>Second load...");
             //using (var session = SessionFactory.OpenSession())
             //{
+                Console.WriteLine(">>>>Second load...");
                 var list2 = session.GetNamedQuery("query1")
                     .SetString("name", "Keep%")
                     .List<Blog>();

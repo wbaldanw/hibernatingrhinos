@@ -40,7 +40,9 @@ namespace UnitTests
         [Test]
         public void trying_to_get_the_same_account_a_second_time_should_get_the_account_from_1st_level_cache()
         {
+            Console.WriteLine("------ now getting entity for the first time");
             var acc1 = Session.Get<Account>(account.Id);
+            Console.WriteLine("------ now getting entity for the second time");
             var acc2 = Session.Get<Account>(account.Id);
 
             acc1.ShouldBeTheSameAs(acc2);
@@ -52,8 +54,10 @@ namespace UnitTests
             var acc1 = Session.Load<Account>(account.Id);
             acc1.ShouldNotBeNull();
             Console.WriteLine("------ now accessing the id of the entity");
+            Console.WriteLine("The id is equal to {0}", acc1.Id);
             acc1.Id.ShouldEqual(account.Id);
-            Console.WriteLine("------ now accessing a property (other than the entity) of the entity");
+            Console.WriteLine("------ now accessing a property (other than the ID) of the entity");
+            Console.WriteLine("The name of the account is: {0}", acc1.Name);
             acc1.Name.ShouldEqual(account.Name);
         }
     }

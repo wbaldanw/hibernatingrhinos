@@ -21,7 +21,7 @@ namespace UnitTests
         }
 
         protected override string ConfigurationName
-        { get { return "hibernate.2nd.cfg.xml"; }}
+        { get { return "hibernate.2nd.sql2005.cfg.xml"; }}
 
         [Test]
         public void trying_to_load_an_existing_item_twice_in_different_sessions_should_use_2nd_level_cache()
@@ -42,7 +42,7 @@ namespace UnitTests
         [Test]
         public void when_updating_the_entity_then_2nd_level_cache_should_also_be_updated()
         {
-            using(var session = SessionFactory.OpenSession())
+            using (var session = SessionFactory.OpenSession())
             using (var tx = session.BeginTransaction())
             {
                 var acc = session.Get<Account>(account.Id);
@@ -50,12 +50,44 @@ namespace UnitTests
                 tx.Commit();
             }
 
-            using(var session = SessionFactory.OpenSession())
+            using (var session = SessionFactory.OpenSession())
             {
                 var acc = session.Get<Account>(account.Id);
                 acc.Balance.ShouldEqual(1200m);
             }
-            
+        }
+    }
+
+    [TestFixture]
+    public class when_saving_a_transient_account : FixtureBase
+    {
+        private Account newAccount;
+
+        protected override string ConfigurationName
+        { get { return "hibernate.2nd.cfg.xml"; } }
+
+        protected override void Context()
+        {
+            base.Context();
+            using (var session = SessionFactory.OpenSession())
+            using (var tx = session.BeginTransaction())
+            {
+                newAccount = new Account("CHF Account", 5500m);
+                session.Save(newAccount);
+                tx.Commit();
+            }
+        }
+
+        [Test]
+        public void account_should_be_in_second_level_cache()
+        {
+            using (var session = SessionFactory.OpenSession())
+            {
+                Console.WriteLine("--> Now loading account");
+                var acc = session.Get<Account>(newAccount.Id);
+                acc.ShouldNotBeNull();
+                acc.Name.ShouldEqual(newAccount.Name);
+            }
         }
     }
 }
