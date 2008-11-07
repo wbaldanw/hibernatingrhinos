@@ -9,11 +9,11 @@
     </id>
     <property name="Author"/>
     <property name="Name"/>
-    <bag name="Posts" cascade="all" lazy="true">
+    <set name="Posts" cascade="all" lazy="true">
       <cache usage="read-write"/>
       <key column="BlogId"/>
       <one-to-many class="Post"/>
-    </bag>
+    </set>
   </class>
   
   <class name="Post">
