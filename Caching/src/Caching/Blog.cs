@@ -14,6 +14,5 @@ namespace Caching
         {
             Posts = new HashedSet<Post>();
         }
-
     }
 }
