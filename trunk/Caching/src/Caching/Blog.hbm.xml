@@ -25,7 +25,7 @@
     <property name="Body"/>
   </class>
 
-  <query cacheable="true" cache-mode="get" name="query1">
+  <query cacheable="true" cache-mode="normal" name="query1">
     <![CDATA[from Blog b where b.Name like :name]]>
     <query-param name="name" type="String"/>
   </query>
