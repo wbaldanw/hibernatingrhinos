@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Blobs"
+                   namespace="Blobs">
+  <class name="Person">
+    <id name="Id">
+      <generator class="guid"/>
+    </id>
+    <property name="LastName"/>
+    <property name="FirstName"/>
+    <many-to-one name="Photo" class="PersonPhoto" unique="true" 
+                 column="PersonPhotoId" cascade="all-delete-orphan"/>
+  </class>
+  
+  <class name="PersonPhoto">
+    <id name="Id">
+      <generator class="guid"/>
+    </id>
+    <property name="Image" type="BinaryBlob"/>
+    <one-to-one name="Owner" property-ref="Photo" constrained="true"/>
+  </class>
+</hibernate-mapping>
