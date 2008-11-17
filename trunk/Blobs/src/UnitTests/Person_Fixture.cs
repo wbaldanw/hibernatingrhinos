@@ -1,12 +1,30 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using Blobs;
 using NHibernate;
+using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
 
 namespace UnitTests
 {
     public class Person_Fixture : FixtureBase<Person>
     { }
+
+    [TestFixture]
+    public class when_creating_the_schema : Person_Fixture
+    {
+        protected override void Context()
+        {
+            base.Context();
+            new SchemaExport(Configuration).Execute(true, false, false, false, Session.Connection, null);
+        }
+
+        [Test]
+        public void smoke_test()
+        {
+            true.ShouldBeTrue();
+        }
+    }
 
     [TestFixture]
     public class when_adding_a_new_person_with_a_photo : Person_Fixture
