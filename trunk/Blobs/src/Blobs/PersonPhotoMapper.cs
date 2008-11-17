@@ -6,7 +6,8 @@ namespace Blobs
     {
         public PersonPhotoMapper()
         {
-            SetAttribute("lazy", "true");
+            LazyLoad();
+
             Id(x => x.Id);
             Map(x => x.Image);
             HasOne(x => x.Owner)
