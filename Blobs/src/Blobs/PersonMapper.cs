@@ -6,7 +6,7 @@ namespace Blobs
     {
         public PersonMapper()
         {
-            SetAttribute("lazy", "true");
+            LazyLoad();
             
             Id(x => x.Id);
             Map(x => x.FirstName);
