@@ -10,6 +10,11 @@ namespace UnitTests
         private Configuration configuration;
         private ISessionFactory sessionFactory;
 
+        public Configuration Configuration
+        {
+            get { return configuration; }
+        }
+
         public ISessionFactory SessionFactory
         {
             get { return sessionFactory; }
