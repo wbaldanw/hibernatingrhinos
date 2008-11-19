@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneToOneMapping", "OneToOneMapping\OneToOneMapping.csproj", "{D7AD64D6-EE6E-4BC8-88A7-003D2C5D4224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "OneToOneMapping.Tests\UnitTests.csproj", "{B0AEF7DA-EB57-450B-ADD4-D788DF6ECA09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7AD64D6-EE6E-4BC8-88A7-003D2C5D4224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AD64D6-EE6E-4BC8-88A7-003D2C5D4224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AD64D6-EE6E-4BC8-88A7-003D2C5D4224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AD64D6-EE6E-4BC8-88A7-003D2C5D4224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AEF7DA-EB57-450B-ADD4-D788DF6ECA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AEF7DA-EB57-450B-ADD4-D788DF6ECA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AEF7DA-EB57-450B-ADD4-D788DF6ECA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AEF7DA-EB57-450B-ADD4-D788DF6ECA09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
