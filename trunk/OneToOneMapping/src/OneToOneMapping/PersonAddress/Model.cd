@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OneToOneMapping.PersonAddress.Person">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Address" Type="OneToOneMapping.PersonAddress.Address" FixedFromPoint="true">
+      <Path>
+        <Point X="2.5" Y="1.062" />
+        <Point X="4" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAg=</HashCode>
+      <FileName>PersonAddress\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OneToOneMapping.PersonAddress.Address">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Owner" Type="OneToOneMapping.PersonAddress.Person" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="1.562" />
+        <Point X="2.5" Y="1.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAAAAIIAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>PersonAddress\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
