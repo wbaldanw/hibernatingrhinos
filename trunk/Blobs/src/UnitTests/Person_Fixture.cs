@@ -1,6 +1,6 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
 using Blobs;
+using FluentNHibernate;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
@@ -119,8 +119,17 @@ namespace UnitTests
         }
     }
 
+    public class TestModel : PersistenceModel
+    {
+        public TestModel()
+        {
+            addMapping(new PersonMapper());
+            addMapping(new PersonPhotoMapper());
+        }
+    }
+
     [TestFixture]
-    public class when_adding_a_new_person_with_a_photo_FI : FluentInterfaceFixtureBase
+    public class when_adding_a_new_person_with_a_photo_FI : FluentInterfaceFixtureBase<TestModel>
     {
         private PersonPhoto photo;
         private Person person;
@@ -181,7 +190,7 @@ namespace UnitTests
     }
 
     [TestFixture]
-    public class when_loading_an_existing_person_from_database_FI : FluentInterfaceFixtureBase
+    public class when_loading_an_existing_person_from_database_FI : FluentInterfaceFixtureBase<TestModel>
     {
         private PersonPhoto photo;
         private Person person;

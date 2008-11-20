@@ -50,12 +50,17 @@
     <Compile Include="PersonPhoto.cs" />
     <Compile Include="PersonPhotoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniDirectional\Person.cs" />
+    <Compile Include="UniDirectional\PersonMapper.cs" />
+    <Compile Include="UniDirectional\PersonPhoto.cs" />
+    <Compile Include="UniDirectional\PersonPhotoMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Person.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Model.cd" />
+    <None Include="UniDirectional\Model.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

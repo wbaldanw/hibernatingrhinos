@@ -1,4 +1,3 @@
-using Blobs;
 using FluentNHibernate;
 using FluentNHibernate.Framework;
 using NHibernate;
@@ -6,7 +5,7 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
-    public class FluentInterfaceFixtureBase
+    public class FluentInterfaceFixtureBase<TModel>  where TModel : PersistenceModel, new()
     {
         protected SessionSource SessionSource { get; set; }
         protected ISession Session { get; private set; }
@@ -25,7 +24,7 @@ namespace UnitTests
 
         protected virtual void Context()
         {
-            SessionSource = new SessionSource(new TestModel());
+            SessionSource = new SessionSource(new TModel());
             Session = SessionSource.CreateSession();
             SessionSource.BuildSchema(Session);
             CreateInitialData(Session);
@@ -44,11 +43,4 @@ namespace UnitTests
         }
     }
 
-    public class TestModel : PersistenceModel
-    {
-        public TestModel()
-        {
-            addMappingsFromAssembly(typeof(Person).Assembly);
-        }
-    }
 }
