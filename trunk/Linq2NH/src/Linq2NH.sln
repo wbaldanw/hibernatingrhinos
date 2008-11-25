@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq2NH", "Linq2NH\Linq2NH.csproj", "{A73280A5-F905-43EE-B067-E4410DCF937B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7369E96B-E435-455B-9779-86CEF5810390}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A73280A5-F905-43EE-B067-E4410DCF937B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73280A5-F905-43EE-B067-E4410DCF937B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73280A5-F905-43EE-B067-E4410DCF937B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73280A5-F905-43EE-B067-E4410DCF937B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7369E96B-E435-455B-9779-86CEF5810390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7369E96B-E435-455B-9779-86CEF5810390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7369E96B-E435-455B-9779-86CEF5810390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7369E96B-E435-455B-9779-86CEF5810390}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
