@@ -5,7 +5,6 @@ using FluentNHibernate.Framework;
 using Linq2NH;
 using NUnit.Framework;
 using System.Linq;
-using UnitTests;
 
 namespace UnitTests
 {
@@ -90,25 +89,24 @@ namespace UnitTests
                           };
             foreach (var person in persons)
                 Session.Save(person);
-            Session.Flush();
-            Session.Clear();
         }
     }
 
     [TestFixture]
     public class when_querying_all_persons : a_repository_with_persons_having_tasks
     {
-        private List<Person> list;
+        private IEnumerable<Person> list;
 
         protected override void Because()
         {
-            list = db.Persons.ToList();
+            list = from p in db.Persons
+                   select p;
         }
 
         [Test]
         public void should_return_all_persons()
         {
-            list.Count.ShouldEqual(persons.Length);
+            list.Count().ShouldEqual(persons.Length);
         }
     }
 
@@ -130,6 +128,33 @@ namespace UnitTests
                        where t.DueDate == DateTime.Today.AddDays(3)
                        select p;
             list.Count().ShouldEqual(2);
+        }
+    }
+
+    [TestFixture]
+    public class when_retrieving_ordered_list_of_persons : a_repository_with_persons_having_tasks
+    {
+        [Test]
+        public void can_order_by_LastName()
+        {
+            var list = db.Persons.OrderBy(x => x.Lastname);
+            list.First().Lastname.ShouldEqual("Doe");
+        }
+    }
+
+    [TestFixture]
+    public class when_grouping_and_aggregating : a_repository_with_persons_having_tasks
+    {
+        [Test]
+        public void can_get_task_with_the_nearest_due_date_per_person()
+        {
+            var q = from p in db.Persons
+                    from t in p.Tasks
+                    select t;
+            var minDate = q.Min(t => t.DueDate);
+            var maxDate = q.Max(t => t.DueDate);
+            minDate.ShouldEqual(DateTime.Today.AddDays(2));
+            maxDate.ShouldEqual(DateTime.Today.AddDays(6));
         }
     }
 }

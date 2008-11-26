@@ -22,10 +22,10 @@ namespace UnitTests
             SessionSource.BuildSchema(Session);
             
             Context();
-            Because();
-
             Session.Flush();
             Session.Clear();
+
+            Because();
         }
 
         [TearDown]
