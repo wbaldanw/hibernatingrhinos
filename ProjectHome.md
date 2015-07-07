@@ -1,0 +1,1 @@
+A place for the sample code from The NHibernate FAQ at http://blogs.hibernatingrhinos.com/nhibernate/Default.aspx.
