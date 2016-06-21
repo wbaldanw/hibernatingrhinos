@@ -10,7 +10,8 @@ namespace NHibernateUnitOfWork.Tests
     {
         [SetUp]
         public void SetupContext()
-        {
+        { 
+            if (UnitOfWork.Configuration.ClassMappings.Count > 0) return;
             UnitOfWork.Configuration.AddAssembly(Assembly.GetExecutingAssembly());
             new SchemaExport(UnitOfWork.Configuration).Execute(false, true, false, false);
         }
